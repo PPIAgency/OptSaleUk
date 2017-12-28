@@ -1,46 +1,24 @@
 package com.opt.saleuk.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+
+import java.util.List;
 
 /**
  * Created by Arizel on 25.12.2017.
  */
-@Entity
-public class User {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+//@Entity
+@Data
+public class User extends AbstractEntity{
 
     private String name;
-
+    private String phone;
     private String email;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private String additionalInfo;
+    private String descriptionOfWork;
+    private List<Feedback> myFeedbackList;
+    private List<Feedback> feedbackAboutMeList;
+    private List<Proposal> myActiveProposalList;
+    private List<Proposal> myLastProposalList;
 
 }
