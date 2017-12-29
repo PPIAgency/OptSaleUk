@@ -1,5 +1,7 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.user;
 
+import com.opt.saleuk.model.proposal.Proposal;
+import com.opt.saleuk.model.proposal.Comment;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,6 +29,9 @@ public class User {
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    @Enumerated(value = EnumType.STRING)
+    private UserStatus status;
 
     @Column(name = "additional_info")
     private String additionalInfo;

@@ -1,4 +1,4 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.location;
 
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import javax.persistence.Id;
  */
 @Entity
 @Data
-public class Location {
+public class Region {
 
     @Id
     @GeneratedValue
@@ -20,8 +20,5 @@ public class Location {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "code", nullable = false)
-    private String code;
 
 }

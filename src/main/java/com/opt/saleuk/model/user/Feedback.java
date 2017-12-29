@@ -1,4 +1,4 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.user;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Data
-public class Comment {
+public class Feedback {
 
     @Id
     @GeneratedValue
@@ -21,12 +21,13 @@ public class Comment {
     private User author;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "proposal_id")
-    private Proposal proposal;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(name = "text")
-    private String text;
+    @Column(name = "message")
+    private String message;
 
     @Column(name = "create_date")
     private Date createDate;
+
 }

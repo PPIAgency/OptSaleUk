@@ -1,15 +1,13 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.delivery;
 
 /**
  * Created by Arizel on 29.12.2017.
  */
-public enum Role {
+public enum DeliveryType {
+    PICKUP("Pickup"),
+    COURIER("Courier");
 
-    ADMIN("Admin"),
-    PROVIDER("Provider"),
-    BUYER("Buyer");
-
-    Role(String name) {
+    DeliveryType(String name) {
         this.name = name;
     }
 

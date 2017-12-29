@@ -1,7 +1,7 @@
 package com.opt.saleuk.controller;
 
 
-import com.opt.saleuk.model.User;
+import com.opt.saleuk.model.user.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

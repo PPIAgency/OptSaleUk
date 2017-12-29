@@ -1,13 +1,14 @@
-package com.opt.saleuk.model.types;
+package com.opt.saleuk.model.user;
 
 /**
  * Created by Arizel on 29.12.2017.
  */
-public enum DeliveryType {
-    PICKUP("Pickup"),
-    COURIER("Courier");
+public enum UserStatus {
+    ACTIVE("Active"),
+    BANNED("Banned"),
+    REMOVED("Removed");
 
-    DeliveryType(String name) {
+    UserStatus(String name) {
         this.name = name;
     }
 

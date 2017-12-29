@@ -1,6 +1,6 @@
 package com.opt.saleuk.repository;
 
-import com.opt.saleuk.model.User;
+import com.opt.saleuk.model.user.User;
 
 import java.util.List;
 

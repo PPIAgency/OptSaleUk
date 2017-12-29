@@ -1,6 +1,5 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.delivery;
 
-import com.opt.saleuk.model.types.DeliveryType;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -1,6 +1,7 @@
-package com.opt.saleuk.model;
+package com.opt.saleuk.model.proposal;
 
 import com.opt.saleuk.model.types.ProductType;
+import com.opt.saleuk.model.user.User;
 import lombok.Data;
 
 import javax.persistence.*;
