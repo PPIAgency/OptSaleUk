@@ -1,11 +1,21 @@
 package com.opt.saleuk.model;
 
-import lombok.Data;
-
 /**
  * Created by Arizel on 29.12.2017.
  */
-@Data
-public class Role extends AbstractEntity{
-    private String name;
+public enum Role {
+
+    ADMIN("Admin"),
+    PROVIDER("Provider"),
+    BUYER("Buyer");
+
+    Role(String name) {
+        this.name = name;
+    }
+
+    private final String name;
+
+    public String getName() {
+        return name;
+    }
 }

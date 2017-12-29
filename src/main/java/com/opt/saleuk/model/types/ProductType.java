@@ -3,11 +3,12 @@ package com.opt.saleuk.model.types;
 /**
  * Created by Arizel on 29.12.2017.
  */
-public enum DeliveryType {
-    PICKUP("Pickup"),
-    COURIER("Courier");
+public enum ProductType {
+    FRUIT("Fruit"),
+    VEGETABLES("Vegetables"),
+    CEREALS("Cereals");
 
-    DeliveryType(String name) {
+    ProductType(String name) {
         this.name = name;
     }
 

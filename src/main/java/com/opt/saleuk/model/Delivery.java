@@ -1,15 +1,28 @@
 package com.opt.saleuk.model;
 
+import com.opt.saleuk.model.types.DeliveryType;
 import lombok.Data;
+
+import javax.persistence.*;
 
 /**
  * Created by Arizel on 29.12.2017.
  */
+@Entity
 @Data
-public class Delivery extends AbstractEntity {
+public class Delivery {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "name")
     private String name;
-    private String type;
+
+    @Enumerated(value = EnumType.STRING)
+    private DeliveryType type;
+
+    @Column(name = "description")
     private String description;
 
 }
