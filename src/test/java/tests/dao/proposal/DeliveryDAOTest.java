@@ -1,4 +1,4 @@
-package tests.dao.delivery;
+package tests.dao.proposal;
 
 import com.opt.saleuk.dao.deliverydao.DeliveryDAO;
 import com.opt.saleuk.model.delivery.Delivery;
@@ -23,7 +23,7 @@ public class DeliveryDAOTest extends AbstractTest {
     @Test
     public void getAllDeliveryTest() {
         LOG.info(SEPARATOR);
-        LOG.info("getAllDeliveryTest was started");
+        LOG.info("getAllCommentsTest was started");
 
         Iterable<Delivery> deliveries = deliveryDAO.findAll();
 
@@ -35,14 +35,14 @@ public class DeliveryDAOTest extends AbstractTest {
     @Test
     public void crudDeliveryTest() {
         LOG.info(SEPARATOR);
-        LOG.info("crudDeliveryTest was started");
+        LOG.info("crudCommentTest was started");
 
         Delivery createdDelivery = insertDelivery();
         Delivery updatedDelivery = updateDelivery(createdDelivery);
         deleteDelivery(updatedDelivery);
     }
 
-    private Delivery createNewEntity() {
+    private Delivery createNewDelivery() {
         Delivery delivery = new Delivery();
         delivery.setName("Fast delivery");
         delivery.setDescription("It is fast delivery");
@@ -84,7 +84,7 @@ public class DeliveryDAOTest extends AbstractTest {
     }
 
     private Delivery insertDelivery() {
-        Delivery delivery = createNewEntity();
+        Delivery delivery = createNewDelivery();
         LOG.info(SEPARATOR);
         LOG.info("Insert delivery: " + delivery);
 

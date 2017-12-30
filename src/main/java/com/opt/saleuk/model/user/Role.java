@@ -6,8 +6,9 @@ package com.opt.saleuk.model.user;
 public enum Role {
 
     ADMIN("Admin"),
-    PROVIDER("Provider"),
-    BUYER("Buyer");
+    SUPER_ADMIN("Super Admin"),
+    USER("User"),
+    VIP_USER("VIP User");
 
     Role(String name) {
         this.name = name;

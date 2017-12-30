@@ -1,8 +1,10 @@
 package com.opt.saleuk.model.user;
 
-import com.opt.saleuk.model.proposal.Proposal;
 import com.opt.saleuk.model.proposal.Comment;
+import com.opt.saleuk.model.proposal.Proposal;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,6 +22,9 @@ public class User {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "phone")
     private String phone;
@@ -40,9 +45,11 @@ public class User {
     private String descriptionOfWork;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
     private List<Feedback> myFeedbackList;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
     private List<Feedback> feedbackAboutMeList;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)

@@ -1,7 +1,9 @@
 package com.opt.saleuk.model.proposal;
 
 import com.opt.saleuk.model.user.User;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,7 +12,9 @@ import java.util.Date;
  * Created by Arizel on 29.12.2017.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Comment {
 
     @Id
