@@ -1,4 +1,4 @@
-package com.opt.saleuk.model.types;
+package com.opt.saleuk.model.proposal;
 
 /**
  * Created by Arizel on 29.12.2017.
@@ -16,5 +16,12 @@ public enum ProductType {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductType{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
