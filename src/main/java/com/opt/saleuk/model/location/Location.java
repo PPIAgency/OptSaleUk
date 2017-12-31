@@ -2,10 +2,8 @@ package com.opt.saleuk.model.location;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Arizel on 29.12.2017.
@@ -23,5 +21,8 @@ public class Location {
 
     @Column(name = "code", nullable = false)
     private String code;
+
+    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+    private List<Region> regions;
 
 }

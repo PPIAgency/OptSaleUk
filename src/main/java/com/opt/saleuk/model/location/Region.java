@@ -1,17 +1,20 @@
 package com.opt.saleuk.model.location;
 
-import lombok.Data;
+import com.opt.saleuk.model.user.User;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Arizel on 29.12.2017.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Region {
 
     @Id
@@ -21,4 +24,18 @@ public class Region {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
+    private List<User> users;
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -1,6 +1,6 @@
 package tests.dao.proposal;
 
-import com.opt.saleuk.dao.deliverydao.DeliveryDAO;
+import com.opt.saleuk.dao.proposaldao.DeliveryDAO;
 import com.opt.saleuk.model.delivery.Delivery;
 import com.opt.saleuk.model.delivery.DeliveryType;
 import org.apache.log4j.Logger;
@@ -23,7 +23,7 @@ public class DeliveryDAOTest extends AbstractTest {
     @Test
     public void getAllDeliveryTest() {
         LOG.info(SEPARATOR);
-        LOG.info("getAllCommentsTest was started");
+        LOG.info("getAllDeliveryTest was started");
 
         Iterable<Delivery> deliveries = deliveryDAO.findAll();
 
@@ -35,7 +35,7 @@ public class DeliveryDAOTest extends AbstractTest {
     @Test
     public void crudDeliveryTest() {
         LOG.info(SEPARATOR);
-        LOG.info("crudCommentTest was started");
+        LOG.info("crudDeliveryTest was started");
 
         Delivery createdDelivery = insertDelivery();
         Delivery updatedDelivery = updateDelivery(createdDelivery);

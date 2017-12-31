@@ -1,7 +1,9 @@
 package com.opt.saleuk.model.proposal;
 
 import com.opt.saleuk.model.user.User;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +13,9 @@ import java.util.List;
  * Created by Arizel on 29.12.2017.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Proposal {
 
     @Id
@@ -48,4 +52,17 @@ public class Proposal {
     @Column(name = "end_date")
     private Date endDate;
 
+    @Override
+    public String toString() {
+        return "Proposal{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", productType=" + productType +
+                ", count=" + count +
+                ", cost=" + cost +
+                ", comments=" + comments +
+                ", createDate=" + createDate +
+                ", endDate=" + endDate +
+                '}';
+    }
 }

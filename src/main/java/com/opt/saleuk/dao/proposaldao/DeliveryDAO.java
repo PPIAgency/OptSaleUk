@@ -1,4 +1,4 @@
-package com.opt.saleuk.dao.deliverydao;
+package com.opt.saleuk.dao.proposaldao;
 
 import com.opt.saleuk.model.delivery.Delivery;
 import org.springframework.data.repository.CrudRepository;

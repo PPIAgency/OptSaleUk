@@ -1,6 +1,8 @@
 package com.opt.saleuk.model.user;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,7 +11,9 @@ import java.util.Date;
  * Created by Arizel on 29.12.2017.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Feedback {
 
     @Id
@@ -30,4 +34,12 @@ public class Feedback {
     @Column(name = "create_date")
     private Date createDate;
 
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
