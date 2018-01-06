@@ -1,6 +1,6 @@
 package tests.dao.proposal;
 
-import com.opt.saleuk.dao.proposaldao.CommentDAO;
+import com.opt.saleuk.dao.proposal.CommentDAO;
 import com.opt.saleuk.model.proposal.Comment;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;

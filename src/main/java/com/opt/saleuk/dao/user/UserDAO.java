@@ -1,4 +1,4 @@
-package com.opt.saleuk.dao.userdao;
+package com.opt.saleuk.dao.user;
 
 import com.opt.saleuk.model.user.User;
 import org.springframework.data.repository.CrudRepository;
@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface UserDAO extends CrudRepository<User, Long>{
 
-    List<User> findByName(String name);
+    List<User> findByLastName(String lastName);
+    User findByEmail(String email);
+    User findByPhone(String phone);
 
 }

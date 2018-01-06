@@ -1,6 +1,6 @@
 package tests.dao.location;
 
-import com.opt.saleuk.dao.locationdao.RegionDAO;
+import com.opt.saleuk.dao.location.RegionDAO;
 import com.opt.saleuk.model.location.Region;
 import org.apache.log4j.Logger;
 import org.junit.Assert;

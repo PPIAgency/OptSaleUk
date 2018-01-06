@@ -56,7 +56,7 @@ public class Proposal {
     public String toString() {
         return "Proposal{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + name + '\'' +
                 ", productType=" + productType +
                 ", count=" + count +
                 ", cost=" + cost +

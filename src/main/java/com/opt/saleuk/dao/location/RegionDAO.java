@@ -1,4 +1,4 @@
-package com.opt.saleuk.dao.locationdao;
+package com.opt.saleuk.dao.location;
 
 import com.opt.saleuk.model.location.Region;
 import org.springframework.data.repository.CrudRepository;

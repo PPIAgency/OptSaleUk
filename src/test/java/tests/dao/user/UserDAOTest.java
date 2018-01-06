@@ -1,9 +1,10 @@
 package tests.dao.user;
 
-import com.opt.saleuk.dao.userdao.UserDAO;
+import com.opt.saleuk.dao.user.UserDAO;
 import com.opt.saleuk.model.user.Role;
 import com.opt.saleuk.model.user.User;
 import com.opt.saleuk.model.user.UserStatus;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import tests.AbstractTest;
 import tests.dao.location.RegionDAOTest;
 
 import java.util.Collections;
+import java.util.Date;
 
 /**
  * Created by Arizel on 30.12.2017.
@@ -102,17 +104,19 @@ public class UserDAOTest extends AbstractTest {
 
     public static User createNewUser() {
         User user = new User();
-        user.setName("First User");
+        user.setFirstName("First User");
+        user.setLastName("First User");
+        user.setCreateDate(new Date());
         user.setPassword("security_password123");
         user.setDescriptionOfWork("I am a provider");
         user.setAdditionalInfo("Fruits");
-        user.setEmail("provider@mail.com");
+        user.setEmail("rovider@mail.com" + RandomUtils.nextLong());
         user.setFeedbackAboutMeList(Collections.emptyList());
         user.setMyComments(Collections.emptyList());
         user.setMyCreatedProposalList(Collections.emptyList());
         user.setMyFeedbackList(Collections.emptyList());
         user.setMyRespondedProposalList(Collections.emptyList());
-        user.setPhone("+380638509108");
+        user.setPhone("+380638509108" + RandomUtils.nextLong());
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.VIP_USER);
         user.setRegion(RegionDAOTest.createNewRegion());
@@ -123,17 +127,19 @@ public class UserDAOTest extends AbstractTest {
     public static User createUpdatedUser(Long id) {
         User user = new User();
         user.setId(id);
-        user.setName("Updated User");
-        user.setPassword("updated_security_password123");
+        user.setFirstName("Updated User");
+        user.setLastName("Updated User");
+        user.setCreateDate(new Date());
+        user.setPassword("updated_security_password123" + RandomUtils.nextLong());
         user.setDescriptionOfWork("I was updated and now I am a buyer");
         user.setAdditionalInfo("Vegetables");
-        user.setEmail("buyer@mail.com");
+        user.setEmail("buyer@mail.com" + RandomUtils.nextLong());
         user.setFeedbackAboutMeList(Collections.emptyList());
         user.setMyComments(Collections.emptyList());
         user.setMyCreatedProposalList(Collections.emptyList());
         user.setMyFeedbackList(Collections.emptyList());
         user.setMyRespondedProposalList(Collections.emptyList());
-        user.setPhone("+38000000000");
+        user.setPhone("+38000000000" + RandomUtils.nextLong());
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.VIP_USER);
         user.setRegion(RegionDAOTest.createNewRegion());

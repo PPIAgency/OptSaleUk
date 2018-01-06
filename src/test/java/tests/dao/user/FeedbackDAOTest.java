@@ -1,6 +1,6 @@
 package tests.dao.user;
 
-import com.opt.saleuk.dao.userdao.FeedbackDAO;
+import com.opt.saleuk.dao.user.FeedbackDAO;
 import com.opt.saleuk.model.user.Feedback;
 import org.apache.log4j.Logger;
 import org.junit.Assert;

@@ -35,7 +35,7 @@ public class Region {
     public String toString() {
         return "Region{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + name + '\'' +
                 '}';
     }
 }

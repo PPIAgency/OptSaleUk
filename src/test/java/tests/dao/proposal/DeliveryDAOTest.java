@@ -1,6 +1,6 @@
 package tests.dao.proposal;
 
-import com.opt.saleuk.dao.proposaldao.DeliveryDAO;
+import com.opt.saleuk.dao.proposal.DeliveryDAO;
 import com.opt.saleuk.model.delivery.Delivery;
 import com.opt.saleuk.model.delivery.DeliveryType;
 import org.apache.log4j.Logger;

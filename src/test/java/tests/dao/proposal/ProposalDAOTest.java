@@ -1,6 +1,6 @@
 package tests.dao.proposal;
 
-import com.opt.saleuk.dao.proposaldao.ProposalDAO;
+import com.opt.saleuk.dao.proposal.ProposalDAO;
 import com.opt.saleuk.model.proposal.ProductType;
 import com.opt.saleuk.model.proposal.Proposal;
 import org.apache.log4j.Logger;

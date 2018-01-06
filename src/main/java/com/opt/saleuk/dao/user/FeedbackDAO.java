@@ -1,4 +1,4 @@
-package com.opt.saleuk.dao.userdao;
+package com.opt.saleuk.dao.user;
 
 import com.opt.saleuk.model.user.Feedback;
 import org.springframework.data.repository.CrudRepository;

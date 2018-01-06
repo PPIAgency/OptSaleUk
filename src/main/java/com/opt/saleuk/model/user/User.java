@@ -22,22 +22,27 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
 
-    @Column(name = "password")
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false, unique = true)
     private String phone;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "role", nullable = false)
     private Role role;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "status", nullable = false)
     private UserStatus status;
 
     @Column(name = "additional_info")
@@ -46,7 +51,7 @@ public class User {
     @Column(name = "description_of_work")
     private String descriptionOfWork;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     private Date createDate;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
