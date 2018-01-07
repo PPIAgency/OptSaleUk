@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import tests.AbstractTest;
 import tests.dao.location.RegionDAOTest;
 
@@ -24,6 +25,9 @@ public class UserDAOTest extends AbstractTest {
 
     @Autowired
     private UserDAO userDAO;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Test
     public void getAllUserTest() {
@@ -45,6 +49,30 @@ public class UserDAOTest extends AbstractTest {
         User createdUser = insertUser();
         User updatedUser = updateUser(createdUser);
         deleteUser(updatedUser);
+    }
+
+    @Test
+    public void createUserTest() {
+        User user = new User();
+        user.setFirstName("First User");
+        user.setLastName("First User");
+        user.setCreateDate(new Date());
+        user.setPassword(bCryptPasswordEncoder.encode("admin"));
+        user.setDescriptionOfWork("I am a provider");
+        user.setAdditionalInfo("Fruits");
+        user.setEmail("admin");
+        //user.setEmail("rovider@mail.com" + RandomUtils.nextLong());
+        user.setFeedbackAboutMeList(Collections.emptyList());
+        user.setMyComments(Collections.emptyList());
+        user.setMyCreatedProposalList(Collections.emptyList());
+        user.setMyFeedbackList(Collections.emptyList());
+        user.setMyRespondedProposalList(Collections.emptyList());
+        user.setPhone("+380638509108" + RandomUtils.nextLong());
+        user.setStatus(UserStatus.ACTIVE);
+        user.setRole(Role.VIP_USER);
+        user.setRegion(RegionDAOTest.createNewRegion());
+
+        userDAO.save(user);
     }
 
     private User updateUser(User createdUser) {

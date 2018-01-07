@@ -1,15 +1,12 @@
 package com.opt.saleuk.controller;
 
-import com.opt.saleuk.service.security.SecurityService;
-import com.opt.saleuk.service.user.UserService;
+import com.opt.saleuk.service.authorization.AuthorizationService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by Arizel on 06.01.2018.
@@ -18,40 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/auth")
 public class AuthorizationController {
 
-    @Autowired
-    SecurityService securityService;
+    private static final Logger LOG = Logger.getLogger(AuthorizationController.class);
 
     @Autowired
-    UserService userService;
+    AuthorizationService authorizationService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String doLogin(HttpServletRequest request){
-        ResponseEntity<Boolean> response = new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST);
-        //securityService.autoLogin()
-//
-//        String email = form.getLogin();
-//
-//        if (StringUtils.isNotEmpty(email)) {
-//            User user = userService.getUserByEmail(form.getLogin());
-//            if (null != user) {
-//                if (!user.getEnabled()){
-//                    return response;
-//                }
-//            } else {
-//                return response;
-//            }
-//        } else {
-//            return response;
-//        }
-       // boolean result = securityService.autoLogin(form.getLogin(), form.getPassword());
-//        if (!result){
-//            return response;
-//        } else {
-//            User user = userService.getSingleUserById(securityService.getAuthenticatedUserId(form.getLogin()));
-//            user.setPassword(null);
-//            request.getSession().setAttribute("USER", user);
-//            return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-//        }
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String doLogin(@RequestParam(name = "username") String login, @RequestParam(name = "password") String password){
+
+        authorizationService.authorize(login, password);
+
         return "redirect:/hello";
     }
 
@@ -81,5 +54,7 @@ public class AuthorizationController {
 //        }
 //        return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 //    }
+
+    //@ResponseStatus()
 
 }

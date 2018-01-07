@@ -34,11 +34,12 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public boolean cryptUserPass(User user) {
-        if (null!=user && null!=user.getPassword()){
+        if (user != null && user.getPassword() != null) {
             String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
             return true;
         }
+
         return false;
     }
 
@@ -56,25 +57,21 @@ public class SecurityServiceImpl implements SecurityService {
     @Override
     public boolean autoLogin(String login, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(login);
-        String encodedPassword = bCryptPasswordEncoder.encode(password);
 
-        Collection<? extends GrantedAuthority> authorities;
+        Collection<? extends GrantedAuthority> authorities = null;
 
         if(userDetails != null && userDetails.getAuthorities() != null){
             authorities = userDetails.getAuthorities();
-        } else {
-            authorities = null;
         }
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, authorities);
-
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), authorities);
         authenticationManager.authenticate(authenticationToken);
 
         if (authenticationToken.isAuthenticated()){
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }

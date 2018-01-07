@@ -11,6 +11,7 @@ import java.util.List;
 public interface UserDAO extends CrudRepository<User, Long>{
 
     List<User> findByLastName(String lastName);
+    User findById(Long id);
     User findByEmail(String email);
     User findByPhone(String phone);
 
