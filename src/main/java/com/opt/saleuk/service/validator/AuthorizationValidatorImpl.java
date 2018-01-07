@@ -45,4 +45,9 @@ public class AuthorizationValidatorImpl implements AuthorizationValidator {
         return bCryptPasswordEncoder.matches(password, user.getPassword());
     }
 
+    @Override
+    public boolean validateRegistration(String login, String password, String repeatPassword) {
+        return true;
+    }
+
 }

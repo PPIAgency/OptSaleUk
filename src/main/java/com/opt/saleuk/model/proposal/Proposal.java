@@ -50,7 +50,7 @@ public class Proposal {
     private Date createDate;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private Date finishDate;
 
     @Override
     public String toString() {
@@ -62,7 +62,7 @@ public class Proposal {
                 ", cost=" + cost +
                 ", comments=" + comments +
                 ", createDate=" + createDate +
-                ", endDate=" + endDate +
+                ", finishDate=" + finishDate +
                 '}';
     }
 }

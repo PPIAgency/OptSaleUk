@@ -109,7 +109,7 @@ public class ProposalDAOTest extends AbstractTest {
         proposal.setCost(3427847239L);
         proposal.setCount(4234);
         proposal.setCreateDate(new Date());
-        proposal.setEndDate(new Date());
+        proposal.setFinishDate(new Date());
         proposal.setProductType(ProductType.FRUIT);
 
         return proposal;
@@ -125,7 +125,7 @@ public class ProposalDAOTest extends AbstractTest {
         proposal.setCost(12321L);
         proposal.setCount(1);
         proposal.setCreateDate(new Date());
-        proposal.setEndDate(new Date());
+        proposal.setFinishDate(new Date());
         proposal.setProductType(ProductType.CEREALS);
 
         return proposal;

@@ -8,4 +8,7 @@ import com.opt.saleuk.model.user.User;
 public interface UserService {
     User findUserById(Long id);
     User findUserByEmail(String email);
+
+    User saveUser(User user);
+    User createUser(String login, String password);
 }

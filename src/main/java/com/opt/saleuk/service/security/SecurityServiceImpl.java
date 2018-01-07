@@ -32,8 +32,7 @@ public class SecurityServiceImpl implements SecurityService {
     @Autowired
     private UserDAO userDAO;
 
-    @Override
-    public boolean cryptUserPass(User user) {
+    public boolean cryptUserPassword(User user) {
         if (user != null && user.getPassword() != null) {
             String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
@@ -41,17 +40,6 @@ public class SecurityServiceImpl implements SecurityService {
         }
 
         return false;
-    }
-
-    @Override
-    public boolean isPasswordMatchEncrypted(String raw, String encoded) {
-        return bCryptPasswordEncoder.matches(raw, encoded);
-    }
-
-    @Override
-    public long getAuthenticatedUserIdByEmail(String email){
-        User user = userDAO.findByEmail(email);
-        return user.getId();
     }
 
     @Override

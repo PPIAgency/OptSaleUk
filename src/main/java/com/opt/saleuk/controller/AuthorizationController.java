@@ -1,5 +1,6 @@
 package com.opt.saleuk.controller;
 
+import com.opt.saleuk.dto.Response;
 import com.opt.saleuk.service.authorization.AuthorizationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by Arizel on 06.01.2018.
@@ -22,9 +26,9 @@ public class AuthorizationController {
     AuthorizationService authorizationService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody String doLogin(@RequestParam(name = "username") String login, @RequestParam(name = "password") String password){
+    public @ResponseBody Response doLogin(@RequestParam(name = "username") String login, @RequestParam(name = "password") String password){
 
-        return authorizationService.authorize(login, password) ? "success" : "not success";
+        return authorizationService.authorize(login, password);
     }
 
 //    @ResponseStatus(HttpStatus.OK)
@@ -41,19 +45,20 @@ public class AuthorizationController {
 //    }
 //
 //
-//    @ResponseStatus(HttpStatus.OK)
-//    @RequestMapping(value = "/logout", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-//    public ResponseEntity<Boolean> doLogout(HttpServletRequest request) throws ServletException {
-//        User user = (User) request.getSession().getAttribute("USER");
-//        if (user != null) {
-//            request.logout();
-//            request.getSession().invalidate();
-//        } else {
-//            return new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST);
-//        }
-//        return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-//    }
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public @ResponseBody Response doLogout(HttpServletRequest request, HttpServletResponse response) {
 
-    //@ResponseStatus()
+        return authorizationService.logout(request, response);
+    }
+    
+    @RequestMapping(value = "/registration")
+    public @ResponseBody Response doRegistration(@RequestParam(name = "username") String login,
+                                         @RequestParam(name = "password") String password,
+                                         @RequestParam(name = "repeat_password") String repeatPassword) {
+
+        Response response = authorizationService.register(login, password, repeatPassword);
+        authorizationService.authorize(login, password);
+        return response;
+    }
 
 }

@@ -5,4 +5,5 @@ package com.opt.saleuk.service.validator;
  */
 public interface AuthorizationValidator {
     boolean validateAuthorization(String login, String password);
+    boolean validateRegistration(String login, String password, String repeatPassword);
 }
