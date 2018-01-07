@@ -64,7 +64,9 @@ public class SecurityServiceImpl implements SecurityService {
             authorities = userDetails.getAuthorities();
         }
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), authorities);
+        UsernamePasswordAuthenticationToken authenticationToken =
+                new UsernamePasswordAuthenticationToken(userDetails, password, authorities);
+
         authenticationManager.authenticate(authenticationToken);
 
         if (authenticationToken.isAuthenticated()){

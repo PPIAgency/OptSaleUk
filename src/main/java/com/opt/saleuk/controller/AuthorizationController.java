@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by Arizel on 06.01.2018.
@@ -21,11 +22,9 @@ public class AuthorizationController {
     AuthorizationService authorizationService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String doLogin(@RequestParam(name = "username") String login, @RequestParam(name = "password") String password){
+    public @ResponseBody String doLogin(@RequestParam(name = "username") String login, @RequestParam(name = "password") String password){
 
-        authorizationService.authorize(login, password);
-
-        return "redirect:/hello";
+        return authorizationService.authorize(login, password) ? "success" : "not success";
     }
 
 //    @ResponseStatus(HttpStatus.OK)

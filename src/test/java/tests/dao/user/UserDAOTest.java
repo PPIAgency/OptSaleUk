@@ -53,6 +53,11 @@ public class UserDAOTest extends AbstractTest {
 
     @Test
     public void createUserTest() {
+        User userFromDB = userDAO.findByEmail("admin");
+        if (userFromDB != null) {
+            return;
+        }
+
         User user = new User();
         user.setFirstName("First User");
         user.setLastName("First User");
@@ -69,7 +74,7 @@ public class UserDAOTest extends AbstractTest {
         user.setMyRespondedProposalList(Collections.emptyList());
         user.setPhone("+380638509108" + RandomUtils.nextLong());
         user.setStatus(UserStatus.ACTIVE);
-        user.setRole(Role.VIP_USER);
+        user.setRole(Role.ADMIN);
         user.setRegion(RegionDAOTest.createNewRegion());
 
         userDAO.save(user);

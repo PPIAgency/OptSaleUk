@@ -42,22 +42,7 @@ public class AuthorizationValidatorImpl implements AuthorizationValidator {
             return false;
         }
 
-        String encodedPassword = bCryptPasswordEncoder.encode(password);
-
-        LOG.info(encodedPassword);
-        LOG.info(user.getPassword());
-
-        encodedPassword = bCryptPasswordEncoder.encode(password);
-
-        LOG.info(encodedPassword);
-        LOG.info(user.getPassword());
-
-        LOG.info(encodedPassword.equals(user.getPassword()));
-
-
-
         return bCryptPasswordEncoder.matches(password, user.getPassword());
-       // return (bCryptPasswordEncoder.encode(password)).equals(user.getPassword());
     }
 
 }
