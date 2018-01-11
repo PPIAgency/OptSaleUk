@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import tests.AbstractTest;
+import tests.dao.location.CityDAOTest;
 import tests.dao.location.RegionDAOTest;
 
 import java.util.Collections;
@@ -76,6 +77,7 @@ public class UserDAOTest extends AbstractTest {
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.ADMIN);
         user.setRegion(RegionDAOTest.createNewRegion());
+        user.setCity(CityDAOTest.createNewCity());
 
         userDAO.save(user);
     }
@@ -153,6 +155,7 @@ public class UserDAOTest extends AbstractTest {
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.VIP_USER);
         user.setRegion(RegionDAOTest.createNewRegion());
+//        user.setCity(CityDAOTest.createNewCity());
 
         return user;
     }
@@ -176,6 +179,7 @@ public class UserDAOTest extends AbstractTest {
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.VIP_USER);
         user.setRegion(RegionDAOTest.createNewRegion());
+       // user.setCity(CityDAOTest.createNewCity());
 
         return user;
     }

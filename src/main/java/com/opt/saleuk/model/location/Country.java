@@ -10,7 +10,7 @@ import java.util.List;
  */
 @Entity
 @Data
-public class Location {
+public class Country {
 
     @Id
     @GeneratedValue
@@ -19,10 +19,7 @@ public class Location {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "code", nullable = false)
-    private String code;
-
-    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
     private List<Region> regions;
 
 }

@@ -9,13 +9,13 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by Arizel on 29.12.2017.
+ * Created by Arizel on 11.01.2018.
  */
 @Entity
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Region {
+public class City {
 
     @Id
     @GeneratedValue
@@ -25,21 +25,18 @@ public class Region {
     private String name;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "country_id")
-    private Country country;
+    @JoinColumn(name = "region_id")
+    private Region region;
 
-    @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
-    private List<City> cities;
-
-    @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
     private List<User> users;
 
     @Override
     public String toString() {
-        return "Region{" +
+        return "City{" +
                 "id=" + id +
-                ", firstName='" + name + '\'' +
-                ", countryId='" + country.getId() +
+                ", name='" + name + '\'' +
+                ", regionId=" + region.getId() +
                 '}';
     }
 }

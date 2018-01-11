@@ -97,7 +97,7 @@ public class RegionDAOTest extends AbstractTest {
     public static Region createNewRegion() {
         Region region = new Region();
         region.setName("Odessa");
-        region.setLocation(LocationDAOTest.createNewLocation());
+        region.setCountry(CountryDAOTest.createNewCountry());
         return region;
     }
 
@@ -105,7 +105,7 @@ public class RegionDAOTest extends AbstractTest {
         Region region = new Region();
         region.setId(id);
         region.setName("New York");
-        region.setLocation(LocationDAOTest.createNewLocation());
+        region.setCountry(CountryDAOTest.createNewCountry());
         return region;
     }
 }

@@ -1,7 +1,8 @@
 package com.opt.saleuk.service.user;
 
 import com.opt.saleuk.dao.user.UserDAO;
-import com.opt.saleuk.model.location.Location;
+import com.opt.saleuk.model.location.City;
+import com.opt.saleuk.model.location.Country;
 import com.opt.saleuk.model.location.Region;
 import com.opt.saleuk.model.user.Role;
 import com.opt.saleuk.model.user.User;
@@ -39,15 +40,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(String login, String password) {
-        Location location = new Location();
-        location.setCode("UK");
-        location.setName("Ukraine");
-        location.setRegions(Collections.emptyList());
+        Country country = new Country();
+        country.setName("Ukraine");
+        country.setRegions(Collections.emptyList());
 
         Region region = new Region();
         region.setName("Odessa");
-        region.setLocation(location);
-        region.setUsers(Collections.emptyList());
+        region.setCountry(country);
+        //region.setUsers(Collections.emptyList());
+
+        City city = new City();
+        city.setName("Odessa");
+        city.setRegion(region);
 
         User user = new User();
         user.setFirstName("First User");
@@ -65,7 +69,8 @@ public class UserServiceImpl implements UserService {
         user.setPhone("+380638509108" + RandomUtils.nextLong());
         user.setStatus(UserStatus.ACTIVE);
         user.setRole(Role.VIP_USER);
-        user.setRegion(region);
+        //user.setRegion(region);
+        user.setCity(city);
 
         return user;
     }

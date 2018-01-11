@@ -108,8 +108,8 @@ public class CommentDAOTest extends AbstractTest {
         Comment comment = new Comment();
         comment.setCreateDate(new Date());
         comment.setText("First text");
-        comment.setAuthor(UserDAOTest.createNewUser());
         comment.setProposal(ProposalDAOTest.createNewProposal());
+        comment.setAuthor(comment.getProposal().getAuthor());
 
         return comment;
     }

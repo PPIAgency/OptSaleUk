@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.user;
 
+import com.opt.saleuk.model.location.City;
 import com.opt.saleuk.model.location.Region;
 import com.opt.saleuk.model.proposal.Comment;
 import com.opt.saleuk.model.proposal.Proposal;
@@ -53,6 +54,10 @@ public class User {
 
     @Column(name = "create_date", nullable = false)
     private Date createDate;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id")
+    private City city;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "region_id")

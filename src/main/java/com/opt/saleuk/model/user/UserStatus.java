@@ -6,7 +6,7 @@ package com.opt.saleuk.model.user;
 public enum UserStatus {
     ACTIVE("Active"),
     BANNED("Banned"),
-    REMOVED("Removed");
+    DEACTIVATED("Deactivated");
 
     UserStatus(String name) {
         this.name = name;
