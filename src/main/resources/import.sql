@@ -1,5 +1,4 @@
 # Script witch hibernate use for create and fill database
-
 USE db_example;
 
 CREATE TABLE IF NOT EXISTS `country` (

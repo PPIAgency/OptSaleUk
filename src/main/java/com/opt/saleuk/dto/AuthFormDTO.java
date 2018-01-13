@@ -6,7 +6,7 @@ import lombok.Data;
  * Created by Arizel on 06.01.2018.
  */
 @Data
-public class AuthForm {
+public class AuthFormDTO {
     private String login;
     private String password;
 }

@@ -1,5 +1,6 @@
 package com.opt.saleuk.service.validator;
 
+import com.opt.saleuk.dto.RegisterFormDTO;
 import com.opt.saleuk.model.user.User;
 import com.opt.saleuk.model.user.UserStatus;
 import com.opt.saleuk.service.user.UserServiceImpl;
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Service;
  * Created by Arizel on 06.01.2018.
  */
 @Service
-public class AuthorizationValidatorImpl implements AuthorizationValidator {
+public class AuthenticationValidatorImpl implements AuthenticationValidator {
 
-    private static final Logger LOG = Logger.getLogger(AuthorizationValidatorImpl.class);
+    private static final Logger LOG = Logger.getLogger(AuthenticationValidatorImpl.class);
 
     @Autowired
     private UserServiceImpl userServiceImpl;
@@ -46,7 +47,8 @@ public class AuthorizationValidatorImpl implements AuthorizationValidator {
     }
 
     @Override
-    public boolean validateRegistration(String login, String password, String repeatPassword) {
+    public boolean validateRegistration(RegisterFormDTO registerFormDTO) {
+        //TODO Need to write validations for the phone, email, passwords and country, region, city
         return true;
     }
 

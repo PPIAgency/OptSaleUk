@@ -1,5 +1,6 @@
 package com.opt.saleuk.service.user;
 
+import com.opt.saleuk.dto.RegisterFormDTO;
 import com.opt.saleuk.model.user.User;
 
 /**
@@ -10,5 +11,5 @@ public interface UserService {
     User findByEmail(String email);
 
     User save(User user);
-    User registerUser(String login, String password);
+    User registerUser(RegisterFormDTO registerFormDTO);
 }

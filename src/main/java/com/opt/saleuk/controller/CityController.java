@@ -1,5 +1,7 @@
 package com.opt.saleuk.controller;
 
+import com.opt.saleuk.dto.AuthFormDTO;
+import com.opt.saleuk.dto.ResponseDTO;
 import com.opt.saleuk.model.location.City;
 import com.opt.saleuk.service.location.city.CityService;
 import org.apache.log4j.Logger;
@@ -7,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -67,4 +66,13 @@ public class CityController {
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE}, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    public @ResponseBody
+    ResponseDTO doLogin(@RequestBody AuthFormDTO authFormDTO){
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("doLogin method was started with authFormDTO: " + authFormDTO);
+        }
+
+        return new ResponseDTO(true);
+    }
 }

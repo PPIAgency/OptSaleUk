@@ -7,6 +7,7 @@ public interface Messages {
     String AUTHORIZATION_SUCCESS = "Authorization was completed successfully";
     String AUTHORIZATION_NOT_SUCCESS = "Authorization failure";
     String REGISTRATION_SUCCESS = "Registration was completed successfully";
+    String EMPTY_REGISTER_FORM = "Registration data is empty";
     String REGISTRATION_NOT_SUCCESS = "Registration failure";
     String LOGOUT_SUCCESS = "Logout was completed successfully";
     String LOGOUT_NOT_SUCCESS = "Logout failure";
