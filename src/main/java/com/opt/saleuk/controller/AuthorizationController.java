@@ -4,11 +4,7 @@ import com.opt.saleuk.dto.Response;
 import com.opt.saleuk.service.authorization.AuthorizationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by Arizel on 06.01.2018.
  */
-@Controller
-@RequestMapping(value = "/auth")
+@RestController
+@RequestMapping("/auth")
 public class AuthorizationController {
 
     private static final Logger LOG = Logger.getLogger(AuthorizationController.class);
@@ -31,20 +27,6 @@ public class AuthorizationController {
         return authorizationService.authorize(login, password);
     }
 
-//    @ResponseStatus(HttpStatus.OK)
-//    @RequestMapping(value = "/isauthorized", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-//    public AuthFlagDTO isAuthorized(HttpServletRequest request){
-//        User thisUser = (User) request.getSession().getAttribute("USER");
-//        AuthFlagDTO result;
-//        if (null==thisUser){
-//            result = new AuthFlagDTO("NA");
-//        } else {
-//            result = new AuthFlagDTO(thisUser.getRole().getRoleName());
-//        }
-//        return result;
-//    }
-//
-//
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public @ResponseBody Response doLogout(HttpServletRequest request, HttpServletResponse response) {
 

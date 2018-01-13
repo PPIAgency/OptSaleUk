@@ -24,22 +24,22 @@ public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
     @Override
-    public User findUserById(Long id) {
+    public User findById(Long id) {
         return userDAO.findById(id);
     }
 
     @Override
-    public User findUserByEmail(String email) {
+    public User findByEmail(String email) {
         return userDAO.findByEmail(email);
     }
 
     @Override
-    public User saveUser(User user) {
+    public User save(User user) {
         return userDAO.save(user);
     }
 
     @Override
-    public User createUser(String login, String password) {
+    public User registerUser(String login, String password) {
         Country country = new Country();
         country.setName("Ukraine");
         country.setRegions(Collections.emptyList());

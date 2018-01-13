@@ -32,7 +32,7 @@ public class AuthorizationValidatorImpl implements AuthorizationValidator {
             return false;
         }
 
-        User user = userServiceImpl.findUserByEmail(login);
+        User user = userServiceImpl.findByEmail(login);
 
         if (user == null) {
             return false;

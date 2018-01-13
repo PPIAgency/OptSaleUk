@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.location;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opt.saleuk.model.user.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,13 +25,16 @@ public class Region {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
     private List<City> cities;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
     private List<User> users;
 

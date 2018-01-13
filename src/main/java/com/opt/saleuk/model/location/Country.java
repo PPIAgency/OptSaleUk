@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.location;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Country {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
     private List<Region> regions;
 

@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,10 +21,12 @@ public class Feedback {
     @GeneratedValue
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private User author;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;

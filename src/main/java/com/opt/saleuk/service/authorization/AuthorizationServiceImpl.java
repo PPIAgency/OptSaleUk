@@ -63,7 +63,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
             return response;
         }
 
-        User user = userService.createUser(login, password);
+        User user = userService.registerUser(login, password);
         if (!securityService.cryptUserPassword(user)) {
             response.setSuccess(false);
             response.setMessage(Messages.CRYPT_PASSWORD_NOT_SUCCESS);
@@ -72,7 +72,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
             response.setMessage(Messages.REGISTRATION_SUCCESS);
         }
 
-        userService.saveUser(user);
+        userService.save(user);
 
         return response;
     }

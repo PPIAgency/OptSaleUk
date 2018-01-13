@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.proposal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opt.saleuk.model.user.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,10 +22,12 @@ public class Comment {
     @GeneratedValue
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private User author;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "proposal_id")
     private Proposal proposal;

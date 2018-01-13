@@ -1,5 +1,6 @@
 package com.opt.saleuk.model.proposal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opt.saleuk.model.user.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,10 +26,12 @@ public class Proposal {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private User author;
 
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "buyer_id")
     private User buyer;
@@ -43,6 +46,7 @@ public class Proposal {
     @Column(name = "cost")
     private Long cost;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "proposal", fetch = FetchType.LAZY)
     private List<Comment> comments;
 
