@@ -1,3 +1,5 @@
+# Script for delete all data of db_example
+
 delete from db_example.feedback;
 delete from db_example.delivery;
 delete from db_example.comment;

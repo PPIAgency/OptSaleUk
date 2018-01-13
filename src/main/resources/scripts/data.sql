@@ -1,3 +1,6 @@
+# Script of filling db_example
+
+
 #INSERT COUNTRIES
 INSERT INTO db_example.country VALUES(1,'Ukraine');
 
@@ -56,6 +59,8 @@ INSERT INTO db_example.user VALUES(48, 'I am a super admin', NOW(), 'I work as s
 INSERT INTO db_example.user VALUES(49, 'I am a admin', NOW(), 'I work as admin and sometimes give some grants to another users', '@dmin', 'Admin', 'Adminskyi', '$2a$11$OvPQevEZhJ3c3xsnAblfi.Xz9S1BMUfRsN1k6KXSiBnoB547yLinO', '+38042657654', 'ADMIN', 'ACTIVE', 26, 3);
 INSERT INTO db_example.user VALUES(50, 'I am a user', NOW(), 'I work as user', 'user', 'User', 'Userovich', '$2a$11$xhmwCLKTnnESySLWw7My3e44yaD4mC7papFirtsdUa9goAgBNFxT.', '+3543687534798', 'USER', 'ACTIVE', 27, 4);
 INSERT INTO db_example.user VALUES(51, 'I am a VIP-user', NOW(), 'I work as VIP USER', 'vipuser', 'User', 'Userovich', '$2a$11$ro7br2SfL26HG29h/XWzj.rU7GFxqCgU0kD3wfWDfMh7gxszTIVa6', '+3785904543', 'VIP_USER', 'ACTIVE', 28, 5);
+
+
 
 COMMIT;
 
